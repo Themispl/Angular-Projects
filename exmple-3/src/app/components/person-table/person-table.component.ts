@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Person } from '../../shared/interfaces/person';
+import { Person, EPerson } from '../../shared/interfaces/person';
 import { EventBindExapleComponent } from '../event-bind-exaple/event-bind-exaple.component';
 
 @Component({
@@ -11,4 +11,5 @@ import { EventBindExapleComponent } from '../event-bind-exaple/event-bind-exaple
 })
 export class PersonTableComponent {
   @Input() person: Person | undefined
+  @Input() eperson: EPerson | undefined
 }
