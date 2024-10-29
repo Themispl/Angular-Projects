@@ -1,0 +1,50 @@
+<h4>user-registretion works!</h4>
+
+@if(registrationStatus.message === 'Not attempt yet'){
+
+
+    <div class="d-flex flex-column mt-2 w-50">
+        <form [formGroup]="form" class="d-flex flex-column">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="givenName" />
+                <mat-error>First name is requered</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>last Name</mat-label>
+                <input matInput type="text" formControlName="surName" />
+                <mat-error>last name is requered</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email" />
+                <mat-error>Email requered</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="text" formControlName="password" />
+                <mat-error>password is requered</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>confirm Password</mat-label>
+                <input matInput type="text" formControlName="confirmPassword" />
+                <mat-error>confirmPassword is requered</mat-error>
+            </mat-form-field>
+            <button mat-flat-button (click)="onSubmit(form.value)" 
+            [disabled]="form.invalid">
+                Register
+            </button>
+
+        </form>
+    </div>
+} @else {
+    @if(registrationStatus.succes){
+        <div class="alert alert-success mt-2 w-50">
+            <strong>Succes:</strong>{{registrationStatus.message}
+        </div>
+    }@else{
+        <div class="alert alert-danger mt-2 w-50">
+            <strong>Error:</strong>{{registrationStatus.message}
+        </div>
+    }
+   }
